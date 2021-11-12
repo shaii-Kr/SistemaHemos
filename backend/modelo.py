@@ -88,7 +88,7 @@ class Doador(Pessoa):
             "Nome completo": self.nomeCompleto,
             "Endereco": self.endereco,
             "Complemento": self.complemento,
-            "Numero do lote": self.numero,
+            "Numero": self.numero,
             "Cidade": self.cidade,
             "Data de nascimento": self.dtNascimento,
             "Genero Biologico": self.genero,
@@ -144,7 +144,7 @@ if __name__ == "__main__":
    
  
     doador1 = Doador(nomeCompleto = "Ana Carolina", dtNascimento = "13/10/2003", genero = "F", cpf = 11034508900, email = "ana.c.santos@gmail.com", \
-    senha = "aninha1234", altura = 1.65, peso = 50, idade = 17, endereco = "Rua imaginaria", numero = 39, complemento = " ", cep = 8002258, cidade = "Blumenau", uf = "SC", nomeSocial = " ", telefoneCelular = 991285589, telefoneResidencial = 33333333, tipo_sanguineo = "O", fator_rh = "-")
+    senha = "aninha1234", altura = 1.65, peso = 50, idade = 17, endereco = "Rua imaginaria", numero = 39, complemento = " ", cep = 8002258, cidade = "Blumenau", uf = "SC", nomeSocial = " ", telefoneCelular = 991285589, telefoneResidencial = 33333333, tipo_sanguineo = "O+", fator_rh = "-")
 
     doacao = Doacao(data = "18/08/2012", hora = "09h15", unidade_hemocentro = "Blumenau", doador = doador1)
     

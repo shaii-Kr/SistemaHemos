@@ -1,5 +1,6 @@
+
 from config import *
-from modelo import Doacao, Pessoa
+from modelo import Doacao, Doador
 
 @app.route("/")
 def padrao():
@@ -7,7 +8,7 @@ def padrao():
 
 @app.route("/listar_pessoas")
 def listar_pessoas():
-    pessoas = db.session.query(Pessoa).all()
+    pessoas = db.session.query(Doador).all()
     retorno = []
     for i in pessoas:
         retorno.append(i.json())

@@ -12,6 +12,34 @@
     <title>HEMOS</title>
     <!-- icone-->
     <link rel="icon" href="../Imagens/icone.ico">
+
+    <style>
+       
+        #teste{
+            flex-direction: column;
+            display: flex;
+            position: relative;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 5px;    
+            margin-top: 5%;
+            margin-bottom: 10%;    
+            justify-content: center;
+            height: 70%;
+            width: 60%;
+            padding-top:1%;
+            padding-bottom: 1%;
+      }    
+      
+      #botao{
+        margin-top: 2%;
+        margin-top: 2%;
+        border: red;
+        background-color: red;
+      } 
+
+    </style>
     </head>
 
     <body style="background-color: #f7f3e9">
@@ -25,8 +53,10 @@
             <a class="dropbtn"><img src="../Imagens/Login_icon.png" width="35" height="35"
                 style="margin-top: -10%; margin-bottom: -5%; margin-left: 60%;"></a>
             <div class="dropdown-content"  style="margin-top: 7px; background: #5eaaa8e7;">
-            <a href="Login.html">Login Usuário</a>
-            <a href="PerfilUser.html" id="perfil">Perfil</a>
+            <a href="LoginUser.html">Login Usuário</a>
+            <a href="PerfilUser.html">Perfil Usuário</a>
+            <a href="LoginFunc.html">Login Funcionário</a>
+            <a href="PerfilFunc.html">Perfil Funcionário</a>
             </div>
         </div>
 
@@ -57,21 +87,111 @@
         </div>
         </nav>
     </header>
-   
-    <div id="tabela" class="invisible">
+    <!-- Título -->
+    <h1 style="text-align: center; color: #ffffff; background-color: #a3d2ca;"><br>Dados Pessoais<br><br></h1>
+    <!-- Lista as informações do doador-->
+    <div id="tabela">
         
-        <div class="container"> 
-            <!-- Linha-->
-            <div class="row"> 
-                <div class="col"> Nome Completo: </div> <!-- coluna -->
-            </div>
-            <div class="row"> 
-                <div class="col"> Data de Nascimento: </div> <!-- coluna -->
-            </div>
-            <div class="row"> 
-                <div class="col"> Tipo Sanguíneo: </div> <!-- coluna -->
+        <div class="container" id="teste"> 
+           
+            <div class="row" style="text-align: center;"> 
+                <div class="col" > Data de Nascimento: </div> 
+                <div class="col" id="lin2" ></div> 
+                <div class="col">
+                    <button type="button" class="btn btn-primary" id="botao">Editar</button>
+                </div>
+
             </div>
 
+            <div class="row" style="text-align: center;"> 
+                <div class="col" > Nome Completo: </div> 
+                <div class="col" id="lin1" ></div> 
+                <div class="col">
+                    <button type="button" class="btn btn-primary" id="botao">Editar</button>
+                </div>
+
+            </div>
+
+            <div class="row" style="text-align: center;"> 
+                <div class="col" > Tipo Sanguíneo: </div> 
+                <div class="col" id="lin3" ></div> 
+                <div class="col">
+                    <button type="button" class="btn btn-primary" id="botao">Editar</button>
+                </div>
+
+            </div>
+
+            <div class="row" style="text-align: center;"> 
+                <div class="col" > CPF: </div> 
+                <div class="col" id="lin4" ></div> 
+                <div class="col">
+                    <button type="button" class="btn btn-primary" id="botao">Editar</button>
+                </div>
+
+            </div>
+            
+            <div class="row" style="text-align: center;"> 
+                <div class="col" > Sexo: </div> 
+                <div class="col" id="lin5" ></div> 
+                <div class="col">
+                    <button type="button" class="btn btn-primary" id="botao">Editar</button>
+                </div>
+
+            </div>
+
+            <div class="row" style="text-align: center;"> 
+                <div class="col" > Altura: </div> 
+                <div class="col" id="lin6" ></div> 
+                <div class="col">
+                    <button type="button" class="btn btn-primary" id="botao">Editar</button>
+                </div>
+
+            </div>
+           
+            <div class="row" style="text-align: center;"> 
+                <div class="col" > Peso: </div> 
+                <div class="col" id="lin7" ></div> 
+                <div class="col">
+                    <button type="button" class="btn btn-primary" id="botao">Editar</button>
+                </div>
+
+            </div>   
+
+            <div class="row" style="text-align: center;"> 
+                <div class="col" > Idade: </div> 
+                <div class="col" id="lin8" ></div> 
+                <div class="col">
+                    <button type="button" class="btn btn-primary" id="botao">Editar</button>
+                </div>
+
+            </div>      
+            
+            <div class="row" style="text-align: center;"> 
+                <div class="col" > CEP: </div> 
+                <div class="col" id="lin9" ></div> 
+                <div class="col">
+                    <button type="button" class="btn btn-primary" id="botao">Editar</button>
+                </div>
+
+            </div>
+
+            <div class="row" style="text-align: center;"> 
+                <div class="col" > Telefone: </div> 
+                <div class="col" id="lin10" ></div> 
+                <div class="col">
+                    <button type="button" class="btn btn-primary" id="botao">Editar</button>
+                </div>
+
+            </div>
+            <div class="row" style="text-align: center;"> 
+                <div class="col" > Celular: </div> 
+                <div class="col" id="lin11" ></div> 
+                <div class="col">
+                    <button type="button" class="btn btn-primary" id="botao">Editar</button>
+                </div>
+
+            </div>      
+            
         </div> 
     </div>
     
