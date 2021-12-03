@@ -57,10 +57,10 @@ html {
     height: 500px;
     position: relative;
     margin: 20px auto;
-    background: #52A0FD;
-    background: -moz-linear-gradient(right,  #52A0FD 0%, #00C9FB 80%, #00C9FB 100%);
-    background: -webkit-linear-gradient(right,  #52A0FD 0%, #00C9FB 80%, #00C9FB 100%);
-    background: linear-gradient(to left,  #52A0FD 0%, #00C9FB 80%, #00C9FB 100%);    
+    background: #4badaa;
+    background: -moz-linear-gradient(right,  #4badaa 0%, #b1ecea 80%, #ade6f5 100%);
+    background: -webkit-linear-gradient(right,  #4badaa 0%, #b1ecea 80%, #ade6f5 100%);
+    background: linear-gradient(to left,  #4badaa 0%, #b1ecea 80%, #ade6f5 100%);    
     border-radius: 3px;
     box-shadow: 3px 8px 16px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     -moz-box-shadow: 3px 8px 16px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -87,8 +87,9 @@ html {
     width: 350px;
     margin: 20px auto;
     display: block;
-    background: #fff;
-    border-left: 10px solid #52A0FD;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.493);
+    border-left: 10px solid #b30000;
     border-radius: 3px;
     box-shadow: 3px 8px 16px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     -moz-box-shadow: 3px 8px 16px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -100,7 +101,7 @@ html {
     font-size: 1rem;
 }
 .event-count {
-    color: #52A0FD;
+    color: #ffffff;
     text-align: right;
 }
 .event-name {
@@ -108,7 +109,7 @@ html {
     text-align: left;
 }
 .event-cancelled {
-    color: #FF1744;
+    color: #b30000;
     text-align: right;
 }
 
@@ -133,10 +134,10 @@ html {
 
 /* Calendar Header */
 .year-header { 
-    background: #52A0FD;
-    background: -moz-linear-gradient(left,  #52A0FD 0%, #00C9FB 80%, #00C9FB 100%);
-    background: -webkit-linear-gradient(left,  #52A0FD 0%, #00C9FB 80%, #00C9FB 100%);
-    background: linear-gradient(to right,  #52A0FD 0%, #00C9FB 80%, #00C9FB 100%);    
+    background: #5eaaa8;
+    background: -moz-linear-gradient(left,  #6cbdba 0%, #4badaa 50%, #6cbdba 100%);
+    background: -webkit-linear-gradient(left,  #6cbdba 0%, #4badaa 50%, #6cbdba 100%);
+    background: linear-gradient(to right,  #6cbdba 0%, #4badaa 50%, #6cbdba 100%);    
     font-family: Helvetica;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     -moz-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -160,22 +161,22 @@ html {
 } 
 .left-button { 
     left:0; 
-    -webkit-border-top-left-radius: 5px; 
+    -webkit-border-top-left-radius: 1px; 
     -moz-border-radius-topleft: 5px; 
     border-top-left-radius: 5px; 
 } 
 .right-button { 
     right:0; 
     top:0; 
-    -webkit-border-top-right-radius: 5px; 
+    -webkit-border-top-right-radius: 1px; 
     -moz-border-radius-topright: 5px; 
     border-top-right-radius: 5px; 
 } 
 .left-button:hover {
-    background: #3FADFF;
+    background: #5eaaa8;
 }
 .right-button:hover { 
-    background: #00C1FF;
+    background: #5eaaa8;
 }
 
 /* Buttons */
@@ -186,21 +187,20 @@ html {
     appearance: none;
     outline: none;
     font-size: 1rem;
-    border-radius: 25px;
-    padding: 0.65rem 1.9rem;
-    transition: .2s ease all;
+    border-radius: 8px;
+    padding: 10px 15px;
     color: white;
     border: none;
-    background: #52A0FD;
-    background: -moz-linear-gradient(left,  #52A0FD 0%, #00C9FB 80%, #00C9FB 100%);
-    background: -webkit-linear-gradient(left,  #52A0FD 0%, #00C9FB 80%, #00C9FB 100%);
-    background: linear-gradient(to right,  #52A0FD 0%, #00C9FB 80%, #00C9FB 100%);
+    background: #bb0000;
+    background: -moz-linear-gradient(left,  #b30000 0%, #d63737 60%, #e95b5b 100%);
+    background: -webkit-linear-gradient(left,  #b30000 0%, #d63737 60%, #e45555 100%);
+    background: linear-gradient(to right,  #b30000 0%, #d63737 60%, #c93f3f 100%);
 }
 #cancel-button {
-    background: #FF1744;
-    background: -moz-linear-gradient(left,  #FF1744 0%, #FF5D95 80%, #FF5D95 100%);
-    background: -webkit-linear-gradient(left,  #FF1744 0%, #FF5D95 80%, #FF5D95 100%);
-    background: linear-gradient(to right,  #FF1744 0%, #FF5D95 80%, #FF5D95 100%);
+    background: #3f3f3f;
+    background: -moz-linear-gradient(left,  #636262 0%, #646464 60%, #7a7a7a 100%);
+    background: -webkit-linear-gradient(left,  #646464 0%, #646464 60%, #7a7a7a 100%);
+    background: linear-gradient(to right,  #636262 0%, #646464 60%, #7a7a7a 100%);
 }
 #add-button {
     display: block;
@@ -245,40 +245,39 @@ html {
 .active-month {
     font-weight: bold;
     font-size: 14px;
-    color: #FF1744;
+    color: #b30000;
 }
 .month:hover {
-    color: #FF1744;
+    color: #b30000;
 }
 
 /*  Dates table */
 .table-date {
     cursor: default;
     color:#2b2b2b; 
-    height:26px;
     width: 26px;
     font-size: 15px;
     padding: 10px;
     line-height:26px; 
     text-align:center; 
-    border-radius: 50%;
+    border-radius: 15%;
     border: 2px solid transparent;
     transition: all 250ms;
 }
 .table-date:not(.nil):hover { 
-    border-color: #FF1744;
+    border-color: #b30000;
     box-shadow: 0 2px 6px RGBA(255, 50, 120, .9);
 }
 .event-date {
-    border-color:#52A0FD;
+    border-color:#5eaaa8;
     box-shadow: 0 2px 8px RGBA(130, 180, 255, .9);
 }
 .active-date{ 
-    background: #FF1744;
+    background: #b30000;
     color: #fff;
 }
 .event-date.active-date {
-    background: #52A0FD;
+    background: #5eaaa8;
     box-shadow: 0 2px 8px RGBA(130, 180, 255, .9);
 }
 
@@ -319,10 +318,10 @@ html {
 }
 .input:focus {
     outline:none;
-    border-color: #00C9FB;
+    border-color: #5eaaa8;
 }
 .error-input {
-    border-color: #FF1744;
+    border-color: #b30000;
 }
 
 /* Tablets and smaller */
@@ -333,15 +332,15 @@ html {
         max-width: 100%;
         width: 370px;
         height: 100%;
-        background: #52A0FD;
-        background: -moz-linear-gradient(left,  #52A0FD 0%, #00C9FB 80%, #00C9FB 100%);
-        background: -webkit-linear-gradient(left,  #52A0FD 0%, #00C9FB 80%, #00C9FB 100%);
-        background: linear-gradient(to right,  #52A0FD 0%, #00C9FB 80%, #00C9FB 100%);  
+        background: #5eaaa8;
+        background: -moz-linear-gradient(left,  #6cbdba 0%, #4badaa 50%, #6cbdba 100%);
+        background: -webkit-linear-gradient(left,  #6cbdba 0%, #4badaa 50%, #6cbdba 100%);
+        background: linear-gradient(to right,  #6cbdba 0%, #4badaa 50%, #6cbdba 100%);   
     }
     .dialog {
         width:370px;
         height: 450px;
-        border-radius: 3px;
+        border-radius: 1px;
         top:0;
         left:0;
     }
@@ -352,7 +351,7 @@ html {
         padding: 0;
         display: block;
         left: 0;
-        border-radius: 3px;
+        border-radius: 1px;
     }
 
     .calendar-container {

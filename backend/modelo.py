@@ -3,21 +3,16 @@ from config import *
 # Classe pai 
 class Pessoa(db.Model):
     nomeCompleto = db.Column(db.String(200))
-    endereco = db.Column(db.String(200))
-    complemento = db.Column(db.String(200))
-    numero = db.Column(db.Integer)
-    cidade = db.Column(db.String(200))
     dtNascimento = db.Column(db.String(100))
     genero = db.Column(db.String(100))
     cpf = db.Column(db.Integer, primary_key=True)
-    uf = db.Column(db.String(200))
-    nomeSocial = db.Column(db.String(200))
     idade = db.Column(db.Integer)
     cep = db.Column(db.Integer)
     telefoneCelular = db.Column(db.Integer)
     telefoneResidencial = db.Column(db.Integer)
     email = db.Column(db.String(100))
     senha = db.Column(db.String(100))
+    confirmarSenha = db.Column(db.String(100))
     type = db.Column(db.String(50)) # Discriminador
     __mapper_args__ = {
         'polymorphic_identity':'pessoa', 
@@ -26,7 +21,7 @@ class Pessoa(db.Model):
 
     # Método que retorna as informações da classe pessoa em uma string
     def __str__(self):
-        return f' {self.nomeCompleto}, {self.endereco}, {self.numero}, {self.complemento}, {self.cidade}, {self.cep}, {self.uf}, {self.dtNascimento}, {self.idade},{self.nomeSocial}, {self.genero}, {self.cpf}, {self.email}, {self.senha}, {self.telefoneCelular}, {self.telefoneResidencial}, '
+        return f' {self.nomeCompleto}, {self.cep}, {self.dtNascimento}, {self.idade}, {self.genero}, {self.cpf}, {self.email}, {self.senha}, {self.telefoneCelular}, {self.telefoneResidencial}, {self.confirmarSenha} '
 
 # Classe filha que representa um funcionário do hemos
 class Funcionario(Pessoa):
@@ -47,24 +42,19 @@ class Funcionario(Pessoa):
     def json(self):
         return {
             "Nome completo": self.nomeCompleto,
-            "Endereco": self.endereco,
-            "Complemento": self.complemento,
-            "Numero do lote": self.numero,
-            "Cidade": self.cidade,
             "Data de nascimento": self.dtNascimento,
             "Genero Biologico": self.genero,
             "CPF": self.cpf,
-            "UF": self.uf,
-            "Nome social": self.nomeSocial,
             "Idade": self.idade,
             "CEP": self.cep,
             "Telefone celular": self.telefoneCelular,
             "Telefone residencial": self.telefoneResidencial,
             "Email": self.email,
+            "Confirmar Senha": self.confirmarSenha,
             "Senha": self.senha, 
             "Codigo de verificacao": self.cod_verificacao,
             "Unidade Hemocentro": self.unidade_hemocentro,
-            "Especialidade": self.especialidade,
+            "Especialidade": self.especialidade
         }
 
 # Classe filha que representa um doador do Hemos       
@@ -86,25 +76,20 @@ class Doador(Pessoa):
     def json(self): 
         return {
             "Nome completo": self.nomeCompleto,
-            "Endereco": self.endereco,
-            "Complemento": self.complemento,
-            "Numero": self.numero,
-            "Cidade": self.cidade,
             "Data de nascimento": self.dtNascimento,
             "Genero Biologico": self.genero,
             "CPF": self.cpf,
-            "UF": self.uf,
-            "Nome social": self.nomeSocial,
             "Idade": self.idade,
             "CEP": self.cep,
             "Telefone celular": self.telefoneCelular,
             "Telefone residencial": self.telefoneResidencial,
             "Email": self.email,
+            "Confirmar Senha": self.confirmarSenha,
             "Senha": self.senha, 
             "Tipo sanguineo": self.tipo_sanguineo,
             "Fator RH": self.fator_rh,
             "Altura": self.altura,
-            "Peso": self.peso,
+            "Peso": self.peso
             }
 class Doacao(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -128,7 +113,6 @@ class Doacao(db.Model):
             "Doador": self.doador.json() # Reciclando a função json da classe Doador para reaproveitar as informações do doador
             }
 
-
 # Bloqueia os códigos de teste quando o arquivo modelo.py é importado
 if __name__ == "__main__":
     
@@ -140,11 +124,9 @@ if __name__ == "__main__":
 
     # Inputs de teste
     funcionario1 = Funcionario(nomeCompleto = "Shaiane Kraus", dtNascimento = "03/11/2003", genero = "F", cpf = 11134508900, email = "shaiane103@gmail.com", \
-    senha = "shai1234", unidade_hemocentro = "Blumenau", cod_verificacao = 123456, idade = 17, endereco = "Rua Johann OHf", numero = 37, complemento = "proximo ao gasparzinho", cep = 8002254, cidade = "Blumenau", uf = "SC", nomeSocial = " ", telefoneCelular = 991285489, telefoneResidencial = 33302305, especialidade = "Enfermeira")
-   
- 
-    doador1 = Doador(nomeCompleto = "Ana Carolina", dtNascimento = "13/10/2003", genero = "F", cpf = 11034508900, email = "ana.c.santos@gmail.com", \
-    senha = "aninha1234", altura = 1.65, peso = 50, idade = 17, endereco = "Rua imaginaria", numero = 39, complemento = " ", cep = 8002258, cidade = "Blumenau", uf = "SC", nomeSocial = " ", telefoneCelular = 991285589, telefoneResidencial = 33333333, tipo_sanguineo = "O+", fator_rh = "-")
+    unidade_hemocentro = "Blumenau", idade = 17, cep = 8002254, telefoneCelular = 991285489, telefoneResidencial = 33302305, especialidade = "Enfermeira", senha = "shai1234", cod_verificacao = 123456, confirmarSenha = "shai1234")
+  
+    doador1 = Doador(nomeCompleto = "Ana Carolina", dtNascimento = "13/10/2003", genero = "F", cpf = 11034508900, email = "ana.c.santos@gmail.com",senha = "aninha1234", altura = 1.65, peso = 50, idade = 17, cep = 8002258, telefoneCelular = 991285589, telefoneResidencial = 33333333, tipo_sanguineo = "O+", fator_rh = "-", confirmarSenha = "aninha1234")
 
     doacao = Doacao(data = "18/08/2012", hora = "09h15", unidade_hemocentro = "Blumenau", doador = doador1)
     

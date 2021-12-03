@@ -17,19 +17,19 @@
 <body style="background-color: #f7f3e9">
   <!-- Cabeçalho -->
 
-  <header>
+  <header style="font-size: 20px;">
     <nav class="navbar navbar-expand-md navbar-light custom" style="background-color: #5eaaa8;">
-      <a class="navbar-brand" href="index.html"><img src="../Imagens/HEMOS_logo_branca_transparente.png"></a>
-
-      <div class="dropdown">
-        <a class="dropbtn"><img src="../Imagens/Login_icon.png" width="35" height="35"
+      <a class="navbar-brand" href="index.html"><img src="../Imagens/HEMOS_logo_branca_transparente.png"
+          width="160"></a>
+      <!-- Dropdown Login -->
+      <div class="dropdown" style="font-size: 15px;">
+        <a class="dropbtn"><img src="../Imagens/Login_icon.png" width="40" height="40"
             style="margin-top: -10%; margin-bottom: -5%; margin-left: 60%;"></a>
         <div class="dropdown-content">
-          <a href=""></a>
           <a href="LoginUser.html">Login Usuário</a>
-          <a href="PerfilUser.html">Perfil Usuário</a>
+          <a href="PerfilUser.html"id="link_listar_infoDoador">Perfil Usuário</a>
           <a href="LoginFunc.html">Login Funcionário</a>
-          <a href="PerfilFunc.html">Perfil Funcionário</a>
+          <a href="PerfilFunc.html" id="link_listar_infoFuncionario">Perfil Funcionário</a>
         </div>
       </div>
 
@@ -44,16 +44,23 @@
             <a class="nav-link" href="index.html" style="color: white;"><b>Home</b><span
                 class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" style="margin-left: 20px;">
             <a class="nav-link" href="Sobre.html" style="color: white;">Sobre</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" style="margin-left: 20px;">
             <a class="nav-link" href="Agendamento.html" style="color: white;">Agendamento</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Cadastro.html" style="color: white;">Cadastro</a>
+          <!-- Dropdown Cadastro-->
+          <li class="nav-item" style="margin-left: 20px;">
+            <div class="dropdown">
+              <a class="dropbtn">Cadastre-se</a>
+              <div class="dropdown-content">
+                <a href="CadastroDoador.html">Doador</a>
+                <a href="CadastroFunc.html">Funcionário</a>
+              </div>
+            </div>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" style="margin-left: 20px;">
             <a class="nav-link" href="Contatos.html" style="color: white;">Contatos</a>
           </li>
         </ul>
@@ -299,7 +306,7 @@
 
             <ul class="list-unstyled">
               <li>
-                <a href="https://www.instagram.com/hemos.ifc/" class="text-white">Instagram</a>
+                <a href="https://www.instagram.com/hemos.ifc/" class="text-white" target="_blank">Instagram</a>
               </li>
               <li>
                 <a href="#!" class="text-white">Facebook</a>
