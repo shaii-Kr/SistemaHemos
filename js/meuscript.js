@@ -354,7 +354,7 @@ $( document ).ready(function(){
     confirmar_senha = $("#confirm").val();
 
     // preparar os dados para envio (json)
-    dados = JSON.stringify({nomeCompleto : nome_doador, dtNascimento: data_nascimento, idade : idade, tipo_sanguineo: tipo_sanguineo, cpf: cpf, genero : sexo, altura : altura, peso : peso, cep : cep, telefoneCelular : celular, telefoneResidencial : telefone, email : email, senha : senha, confirmarSenha : confirmar_senha});
+    dados = JSON.stringify({nomeCompleto : nome_doador, dtNascimento: data_nascimento, idade : idade, tipo_sanguineo: tipo_sanguineo, doad_cpf: cpf, genero : sexo, altura : altura, peso : peso, cep : cep, telefoneCelular : celular, telefoneResidencial : telefone, email : email, senha : senha, confirmarSenha : confirmar_senha});
 
     // mandar para o back-end
     $.ajax({

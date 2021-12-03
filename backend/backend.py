@@ -1,3 +1,4 @@
+from werkzeug.wrappers import response
 from config import *
 from modelo import Doacao, Doador, Funcionario
 
@@ -40,10 +41,18 @@ def listar_doacoes():
 
 @app.route("/incluir_doador", methods=['post'])
 def incluir_doador():
+    # receber as informações da nova pessoa 
     dados = request.get_json()
-    novo_doador = Doador(**dados) 
-    db.session.add(novo_doador)
-    db.session.commit()
+    try:
+        novo_doador = Doador(**dados) 
+        db.session.add(novo_doador)
+        db.session.commit()
+    # informar mensagem de erro
+    except Exception as e:
+        resposta =  jsonify({"resultado":"erro", "detalhes":str(e)}) 
+    
+    # adicionar cabeçalho de liberação de origem 
+    resposta.headers.add("Access-Control-Allow-Origin", "*") 
     return {"resultado":'ok'}
 
 app.run(debug=True)
