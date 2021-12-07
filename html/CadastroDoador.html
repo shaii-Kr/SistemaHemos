@@ -1,215 +1,215 @@
 <!doctype html>
 <html lang="pt-br">
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="../css/style.css">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
 
-  <title>HEMOS - Cadastro Doador</title>
-  <link rel="icon" href="../Imagens/icone.ico">
-  <link rel="stylesheet" href="" media="screen">
-  <link rel="stylesheet" href="" media="print">
-  <style>
-    #container {
-      margin-left: 12%;
-      justify-content: center;
+    <title>HEMOS - Cadastro Doador</title>
+    <link rel="icon" href="../Imagens/icone.ico">
+    <link rel="stylesheet" href="" media="screen">
+    <link rel="stylesheet" href="" media="print">
+    <style>
+      #container {
+        margin-left: 12%;
+        justify-content: center;
 
-    }
+      }
 
-    body,
-    html {
-      height: 90%;
-      background-image: radial-gradient(circle at 14.45% 7.64%, #eff3ef 0, #e7efe8 8.33%, #ddeae1 16.67%, #d1e5db 25%, #c3dfd5 33.33%, #b4d9cf 41.67%, #a2d2ca 50%, #90cbc6 58.33%, #7ec4c5 66.67%, #6dbec4 75%, #5cb8c5 83.33%, #4db3c7 91.67%, #41aec9 100%);
-      background-attachment: fixed;
-    }
+      body,
+      html {
+        height: 90%;
+        background-image: radial-gradient(circle at 14.45% 7.64%, #eff3ef 0, #e7efe8 8.33%, #ddeae1 16.67%, #d1e5db 25%, #c3dfd5 33.33%, #b4d9cf 41.67%, #a2d2ca 50%, #90cbc6 58.33%, #7ec4c5 66.67%, #6dbec4 75%, #5cb8c5 83.33%, #4db3c7 91.67%, #41aec9 100%);
+        background-attachment: fixed;
+      }
 
-    .user_card {
-      flex-direction: column;
-      display: flex;
-      position: relative;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      border-radius: 5px;
-    }
-  </style>
-</head>
+      .user_card {
+        flex-direction: column;
+        display: flex;
+        position: relative;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+      }
+    </style>
+  </head>
 
-<body>
-  <!-- Cabeçalho -->
-  <header style="font-size: 20px;">
-    <nav class="navbar navbar-expand-md navbar-light custom" style="background-color: #5eaaa8;">
-      <a class="navbar-brand" href="index.html"><img src="../Imagens/HEMOS_logo_branca_transparente.png"
-          width="160"></a>
+  <body>
+    <!-- Cabeçalho -->
+    <header style="font-size: 20px;">
+      <nav class="navbar navbar-expand-md navbar-light custom" style="background-color: #5eaaa8;">
+        <a class="navbar-brand" href="index.html"><img src="../Imagens/HEMOS_logo_branca_transparente.png"
+            width="160"></a>
 
-      <div class="dropdown" style="font-size: 15px;">
-        <a class="dropbtn"><img src="../Imagens/Login_icon.png" width="40" height="40"
-            style="margin-top: -10%; margin-bottom: -5%; margin-left: 60%;"></a>
-        <div class="dropdown-content">
-          <a href="LoginUser.html">Login Usuário</a>
-          <a href="PerfilUser.html"id="link_listar_infoDoador">Perfil Usuário</a>
-          <a href="LoginFunc.html">Login Funcionário</a>
-          <a href="PerfilFunc.html" id="link_listar_infoFuncionario">Perfil Funcionário</a>
+        <div class="dropdown" style="font-size: 15px;">
+          <a class="dropbtn"><img src="../Imagens/Login_icon.png" width="40" height="40"
+              style="margin-top: -10%; margin-bottom: -5%; margin-left: 60%;"></a>
+          <div class="dropdown-content">
+            <a href="LoginUser.html">Login Usuário</a>
+            <a href="PerfilUser.html"id="link_listar_infoDoador">Perfil Usuário</a>
+            <a href="LoginFunc.html">Login Funcionário</a>
+            <a href="PerfilFunc.html" id="link_listar_infoFuncionario">Perfil Funcionário</a>
+          </div>
         </div>
-      </div>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 3%;">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html" style="color: white;"><b>Home</b><span
-                class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item" style="margin-left: 20px;">
-            <a class="nav-link" href="Sobre.html" style="color: white;">Sobre</a>
-          </li>
-          <li class="nav-item" style="margin-left: 20px;">
-            <a class="nav-link" href="Agendamento.html" style="color: white;">Agendamento</a>
-          </li>
-          <!-- Dropdown Cadastro-->
-          <li class="nav-item" style="margin-left: 20px; color: white;">
-            <div class="dropdown">
-              <a class="dropbtn">Cadastre-se</a>
-              <div class="dropdown-content">
-                <a href="CadastroDoador.html">Doador</a>
-                <a href="CadastroFunc.html">Funcionário</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 3%;">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html" style="color: white;"><b>Home</b><span
+                  class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" style="margin-left: 20px;">
+              <a class="nav-link" href="Sobre.html" style="color: white;">Sobre</a>
+            </li>
+            <li class="nav-item" style="margin-left: 20px;">
+              <a class="nav-link" href="Agendamento.html" style="color: white;">Agendamento</a>
+            </li>
+            <!-- Dropdown Cadastro-->
+            <li class="nav-item" style="margin-left: 20px; color: white;">
+              <div class="dropdown">
+                <a class="nav-link" style="color: white;">Cadastre-se</a>
+                <div class="dropdown-content">
+                  <a href="CadastroDoador.html">Doador</a>
+                  <a href="CadastroFunc.html">Funcionário</a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item" style="margin-left: 20px;">
+              <a class="nav-link" href="Contatos.html" style="color: white;">Contatos</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div id="container" class="w-75" style="margin-top: 50px;">
+      <div class="card text-center" style="background-color: #00000069;">
+        <div class=" user_card card-body">
+          <br><br>
+          <h2 class="card-title text-center" style="color: white;">DADOS PESSOAIS</h2> <br><br>
+          <form onsubmit="return false;">
+            <div class="row justify-content-center" style="color: white;">
+              <div class="form-group col-md-3 ">
+                <label for="inputNome">Nome Completo</label>
+                <input type="text" class="form-control" id="nomeDoador" placeholder="Nome Completo">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputDataNascimento">Data de nascimento</label>
+                <input type="date" class="form-control" id="dataNascimentoDoador" placeholder="Data">
+              </div>
+              <div class="form-group col-md-2 ">
+                <label for="inputIdade">Idade</label>
+                <input type="text" class="form-control" id="idade" placeholder="Idade">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputTipoSanguineo">Tipo Sanguíneo</label>
+                <select class="form-control" id="tipoSanguineo">
+                  <option>A+</option>
+                  <option>B+</option>
+                  <option>O+</option>
+                  <option>AB+</option>
+                  <option>A-</option>
+                  <option>B-</option>
+                  <option>O-</option>
+                  <option>AB-</option>
+                </select>
+              </div>
+            </div> <br>
+            <div class="row justify-content-center" style="color: white;">
+              <div class="form-group col-md-3">
+                <label for="inputCPF">CPF</label>
+                <input type="text" class="form-control" id="CPF" placeholder="CPF">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputSexo">Sexo</label>
+                <select class="form-control" id="sexo">
+                  <option>Masculino</option>
+                  <option>Feminino</option>
+                  <option>Outro</option>
+                </select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputAltura">Altura (cm)</label>
+                <input type="text" class="form-control" id="altura" placeholder="Altura">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputPeso">Peso(kg)</label>
+                <input type="text" class="form-control" id="peso" placeholder="Peso">
+              </div>
+            </div><br>
+            <div class="form-row  justify-content-center" style="color: white;">
+              <div class="form-group col-md-3">
+                <label for="inputCEP">CEP</label>
+                <input type="text" class="form-control" id="CEP" placeholder="CEP">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputTelefone">Telefone</label>
+                <input type="text" class="form-control" id="telefone" placeholder="Telefone">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputCel">Celular</label>
+                <input type="text" class="form-control" id="cel" placeholder="(XX) xxxxx-xxxx">
+              </div>
+            </div><br>
+            <div class="form-row justify-content-center" style="color: white;">
+              <div class="form-group col-md-3">
+                <label for="inputEmail">E-mail</label>
+                <input type="email" class="form-control" id="email" placeholder="xxxxxx@gmail">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputSenha">Senha</label>
+                <input type="text" class="form-control" id="senha" placeholder="Senha">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputConfirm">Confirmar senha</label>
+                <input type="text" class="form-control" id="confirm" placeholder="Confirmar senha">
               </div>
             </div>
-          </li>
-          <li class="nav-item" style="margin-left: 20px;">
-            <a class="nav-link" href="Contatos.html" style="color: white;">Contatos</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-
-  <div id="container" class="w-75" style="margin-top: 50px;">
-    <div class="card text-center" style="background-color: #00000069;">
-      <div class=" user_card card-body">
-        <br><br>
-        <h2 class="card-title text-center" style="color: white;">DADOS PESSOAIS</h2> <br><br>
-        <form>
-          <div class="row justify-content-center" style="color: white;">
-            <div class="form-group col-md-3 ">
-              <label for="inputNome">Nome Completo</label>
-              <input type="text" class="form-control" id="nomeDoador" placeholder="Nome Completo">
+            <div class="form-group" style="color: white;">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                  Concordo com todos os termos
+                </label>
+              </div>
             </div>
-            <div class="form-group col-md-2">
-              <label for="inputDataNascimento">Data de nascimento</label>
-              <input type="date" class="form-control" id="dataNascimentoDoador" placeholder="Data">
-            </div>
-            <div class="form-group col-md-2 ">
-              <label for="inputIdade">Idade</label>
-              <input type="text" class="form-control" id="idade" placeholder="Idade">
-            </div>
-            <div class="form-group col-md-2">
-              <label for="inputTipoSanguineo">Tipo Sanguíneo</label>
-              <select class="form-control" id="tipoSanguineo">
-                <option>A+</option>
-                <option>B+</option>
-                <option>O+</option>
-                <option>AB+</option>
-                <option>A-</option>
-                <option>B-</option>
-                <option>O-</option>
-                <option>AB-</option>
-              </select>
-            </div>
-          </div> <br>
-          <div class="row justify-content-center" style="color: white;">
-            <div class="form-group col-md-3">
-              <label for="inputCPF">CPF</label>
-              <input type="text" class="form-control" id="CPF" placeholder="CPF">
-            </div>
-            <div class="form-group col-md-2">
-              <label for="inputSexo">Sexo</label>
-              <select class="form-control" id="sexo">
-                <option>Masculino</option>
-                <option>Feminino</option>
-                <option>Outro</option>
-              </select>
-            </div>
-            <div class="form-group col-md-2">
-              <label for="inputAltura">Altura (cm)</label>
-              <input type="text" class="form-control" id="altura" placeholder="Altura">
-            </div>
-            <div class="form-group col-md-2">
-              <label for="inputPeso">Peso(kg)</label>
-              <input type="text" class="form-control" id="peso" placeholder="Peso">
-            </div>
-          </div><br>
-          <div class="form-row  justify-content-center" style="color: white;">
-            <div class="form-group col-md-3">
-              <label for="inputCEP">CEP</label>
-              <input type="text" class="form-control" id="CEP" placeholder="CEP">
-            </div>
-            <div class="form-group col-md-3">
-              <label for="inputTelefone">Telefone</label>
-              <input type="text" class="form-control" id="telefone" placeholder="Telefone">
-            </div>
-            <div class="form-group col-md-3">
-              <label for="inputCel">Celular</label>
-              <input type="text" class="form-control" id="cel" placeholder="(XX) xxxxx-xxxx">
-            </div>
-          </div><br>
-          <div class="form-row justify-content-center" style="color: white;">
-            <div class="form-group col-md-3">
-              <label for="inputEmail">E-mail</label>
-              <input type="email" class="form-control" id="email" placeholder="xxxxxx@gmail">
-            </div>
-            <div class="form-group col-md-3">
-              <label for="inputSenha">Senha</label>
-              <input type="text" class="form-control" id="senha" placeholder="Senha">
-            </div>
-            <div class="form-group col-md-3">
-              <label for="inputConfirm">Confirmar senha</label>
-              <input type="text" class="form-control" id="confirm" placeholder="Confirmar senha">
-            </div>
-          </div>
-          <div class="form-group" style="color: white;">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
-              <label class="form-check-label" for="gridCheck">
-                Concordo com todos os termos
-              </label>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-danger">Enviar</button>
-        </form><br><br>
+            <button type="submit" class="btn btn-danger" id="btcadastrar">Enviar</button>
+          </form><br><br>
+        </div>
       </div>
     </div>
-  </div>
-  <br><br><br>
+    <br><br><br>
 
 
 
 
-  <section>
-    <!-- Footer -->
-    <footer style="background: #a3d2ca;" class="text-white text-center">
-      <div class="text-center p-3" style="background-color: #5eaaa8;">
-        © 2020 Copyright:
-        <a class="text-white" href="https://ifc.edu.br/">IFC - Campus Blumenau</a>
-      </div>
-    </footer>
-  </section>
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="../js/meuscript.js"></script>
-</body>
+    <section>
+      <!-- Footer -->
+      <footer style="background: #a3d2ca;" class="text-white text-center">
+        <div class="text-center p-3" style="background-color: #5eaaa8;">
+          © 2020 Copyright:
+          <a class="text-white" href="https://ifc.edu.br/">IFC - Campus Blumenau</a>
+        </div>
+      </footer>
+    </section>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+    <script src="../js/meuscript.js"></script>
+  </body>
 
 </html>

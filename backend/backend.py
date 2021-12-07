@@ -41,18 +41,38 @@ def listar_doacoes():
 
 @app.route("/incluir_doador", methods=['post'])
 def incluir_doador():
-    # receber as informações da nova pessoa 
+    # preparar uma resposta otimista
+    resposta = jsonify({"resultado": "ok", "detalhes": "ok"})
+    # receber as informações do novo doador
     dados = request.get_json()
     try:
-        novo_doador = Doador(**dados) 
+        novo_doador = Doador(**dados)
         db.session.add(novo_doador)
         db.session.commit()
     # informar mensagem de erro
     except Exception as e:
-        resposta =  jsonify({"resultado":"erro", "detalhes":str(e)}) 
-    
-    # adicionar cabeçalho de liberação de origem 
-    resposta.headers.add("Access-Control-Allow-Origin", "*") 
-    return {"resultado":'ok'}
+        resposta = jsonify({"resultado": "erro", "detalhes": str(e)})
+
+    # adicionar cabeçalho de liberação de origem
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return {"resultado": 'ok'}
+
+@app.route("/incluir_doacao", methods=['post'])
+def incluir_doacao():
+    # preparar uma resposta otimista
+    resposta = jsonify({"resultado": "ok", "detalhes": "ok"})
+    # receber as informações da nova doacao
+    dadosDoacao = request.get_json()
+    try:
+        nova_doacao = Doacao(**dadosDoacao)
+        db.session.add(nova_doacao)
+        db.session.commit()
+    # informar mensagem de erro
+    except Exception as e:
+        resposta = jsonify({"resultado": "erro", "detalhes": str(e)})
+
+    # adicionar cabeçalho de liberação de origem
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return {"resultado": 'ok'}
 
 app.run(debug=True)

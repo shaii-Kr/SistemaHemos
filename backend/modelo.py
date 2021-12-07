@@ -44,7 +44,7 @@ class Funcionario(Pessoa):
             "Nome completo": self.nomeCompleto,
             "Data de nascimento": self.dtNascimento,
             "Genero Biologico": self.genero,
-            "CPF": self.func_cpf,
+            "CPF": self.cpf,
             "Idade": self.idade,
             "CEP": self.cep,
             "Telefone celular": self.telefoneCelular,
@@ -78,7 +78,7 @@ class Doador(Pessoa):
             "Nome completo": self.nomeCompleto,
             "Data de nascimento": self.dtNascimento,
             "Genero Biologico": self.genero,
-            "CPF": self.doad_cpf,
+            "CPF": self.cpf,
             "Idade": self.idade,
             "CEP": self.cep,
             "Telefone celular": self.telefoneCelular,
@@ -123,10 +123,10 @@ if __name__ == "__main__":
     db.create_all() # Cria as tabelas do banco de dados
 
     # Inputs de teste
-    funcionario1 = Funcionario(nomeCompleto = "Shaiane Kraus", dtNascimento = "03/11/2003", genero = "F", func_cpf = 11134508900, email = "shaiane103@gmail.com", \
+    funcionario1 = Funcionario(nomeCompleto = "Shaiane Kraus", dtNascimento = "03/11/2003", genero = "F", cpf = 11134508900, email = "shaiane103@gmail.com", \
     unidade_hemocentro = "Blumenau", idade = 17, cep = 8002254, telefoneCelular = 991285489, telefoneResidencial = 33302305, especialidade = "Enfermeira", senha = "shai1234", cod_verificacao = 123456, confirmarSenha = "shai1234")
   
-    doador1 = Doador(nomeCompleto = "Ana Carolina", dtNascimento = "13/10/2003", genero = "F", doad_cpf = 11034508900, email = "ana.c.santos@gmail.com",senha = "aninha1234", altura = 1.65, peso = 50, idade = 17, cep = 8002258, telefoneCelular = 991285589, telefoneResidencial = 33333333, tipo_sanguineo = "O+", fator_rh = "-", confirmarSenha = "aninha1234")
+    doador1 = Doador(nomeCompleto = "Ana Carolina", dtNascimento = "13/10/2003", genero = "F", cpf = 11034508902, email = "ana.c.santos@gmail.com",senha = "aninha1234", altura = 1.65, peso = 50, idade = 17, cep = 8002258, telefoneCelular = 991285589, telefoneResidencial = 33333333, tipo_sanguineo = "O+", fator_rh = "-", confirmarSenha = "aninha1234")
 
     doacao = Doacao(data = "18/08/2012", hora = "09h15", unidade_hemocentro = "Blumenau", doador = doador1)
     
