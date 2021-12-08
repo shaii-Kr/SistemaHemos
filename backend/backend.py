@@ -6,6 +6,7 @@ from modelo import Doacao, Doador, Funcionario
 def padrao():
     return "backend operante"
 
+#listar informações do doador
 @app.route("/listar_infoDoador")
 def listar_infoDoador():
     infoDoador = db.session.query(Doador).all()
@@ -17,6 +18,7 @@ def listar_infoDoador():
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta
 
+#listar informações do funcionário
 @app.route("/listar_infoFuncionario")
 def listar_infoFuncionario():
     infoFunc = db.session.query(Funcionario).all()
@@ -28,6 +30,7 @@ def listar_infoFuncionario():
     resposta2.headers.add("Access-Control-Allow-Origin", "*")
     return resposta2
 
+#listar informações das doações
 @app.route("/listar_doacoes")
 def listar_doacoes():
     doac = db.session.query(Doacao).all()
@@ -39,6 +42,7 @@ def listar_doacoes():
     resposta3.headers.add("Access-Control-Allow-Origin", "*")
     return resposta3
 
+#cadastrar doador
 @app.route("/incluir_doador", methods=['post'])
 def incluir_doador():
     # preparar uma resposta otimista
@@ -57,6 +61,26 @@ def incluir_doador():
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return {"resultado": 'ok'}
 
+#cadastrar funcionário
+@app.route("/incluir_funcionario", methods=['post'])
+def incluir_funcionario():
+    # preparar uma resposta otimista
+    resposta = jsonify({"resultado": "ok", "detalhes": "ok"})
+    # receber as informações do novo doador
+    dadosFunc = request.get_json()
+    try:
+        novo_func = Funcionario(**dadosFunc)
+        db.session.add(novo_func)
+        db.session.commit()
+    # informar mensagem de erro
+    except Exception as e:
+        resposta = jsonify({"resultado": "erro", "detalhes": str(e)})
+
+    # adicionar cabeçalho de liberação de origem
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return {"resultado": 'ok'}
+
+#cadastrar doação
 @app.route("/incluir_doacao", methods=['post'])
 def incluir_doacao():
     # preparar uma resposta otimista

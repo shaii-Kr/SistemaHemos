@@ -92,43 +92,45 @@
       </div>
     </nav>
   </header>
-
+  
+  <!-- Formulário de cadastro de funcionário-->
   <div id="container" class="w-75" style="margin-top: 50px;">
     <div class="card text-center" style="background-color: #00000069;">
       <div class=" user_card card-body">
         <br><br>
         <h2 class="card-title text-center" style="color: white;">DADOS PESSOAIS</h2> <br><br>
-        <form>
+        <!-- Inicio -->
+        <form onsubmit="return false;">
           <div class="row justify-content-center" style="color: white;">
             <div class="form-group col-md-3 ">
               <label for="inputNome">Nome Completo</label>
-              <input type="text" class="form-control" placeholder="Nome Completo">
+              <input type="text" class="form-control" placeholder="Nome Completo" id="nomeFunc">
             </div>
             <div class="form-group col-md-2">
               <label for="inputDataNascimento">Data de nascimento</label>
-              <input type="date" class="form-control" id="dataNascimento" placeholder="Data">
+              <input type="date" class="form-control" id="dataNascFunc" placeholder="Data">
             </div>
             <div class="form-group col-md-2 ">
               <label for="inputIdade">Idade</label>
-              <input type="text" class="form-control" placeholder="Idade">
+              <input type="text" class="form-control" placeholder="Idade" id="idadeFunc">
             </div>
             <div class="form-group col-md-3 ">
               <label for="inputEspecialidade">Especialidade</label>
-              <input type="text" class="form-control" placeholder="Especialidade">
+              <input type="text" class="form-control" placeholder="Especialidade" id="especialidade">
             </div>
           </div> <br>
           <div class="row justify-content-center" style="color: white;">
             <div class="form-group col-md-3">
               <label for="inputCPF">CPF</label>
-              <input type="text" class="form-control" id="CPF" placeholder="CPF">
+              <input type="text" class="form-control" id="cpfFunc" placeholder="CPF">
             </div>
             <div class="form-group col-md-3 ">
               <label for="inputUniHemo">Unidade Hemocentro</label>
-              <input type="text" class="form-control" placeholder="Hemocentro">
+              <input type="text" class="form-control" placeholder="Hemocentro" id="uniHemo">
             </div>
             <div class="form-group col-md-2">
               <label for="inputSexo">Sexo</label>
-              <select class="form-control" id="Sexo">
+              <select class="form-control" id="sexoFunc">
                 <option>Masculino</option>
                 <option>Feminino</option>
                 <option>Outro</option>
@@ -136,37 +138,37 @@
             </div>
             <div class="form-group col-md-2">
               <label for="inputCEP">CEP</label>
-              <input type="text" class="form-control" id="CEP" placeholder="CEP">
+              <input type="text" class="form-control" id="cepFunc" placeholder="CEP">
             </div>
           </div><br>
           <div class="form-row  justify-content-center" style="color: white;">
             
             <div class="form-group col-md-3">
               <label for="inputTelefone">Telefone</label>
-              <input type="text" class="form-control" id="Telefone" placeholder="Telefone">
+              <input type="text" class="form-control" id="telefoneFunc" placeholder="Telefone">
             </div>
             <div class="form-group col-md-3">
               <label for="inputCel">Celular</label>
-              <input type="text" class="form-control" id="Cel" placeholder="(XX) xxxxx-xxxx">
+              <input type="text" class="form-control" id="celFunc" placeholder="(XX) xxxxx-xxxx">
             </div>
             <div class="form-group col-md-4">
               <label for="inputEmail">E-mail</label>
-              <input type="email" class="form-control" id="Email" placeholder="xxxxxx@gmail">
+              <input type="email" class="form-control" id="emailFunc" placeholder="xxxxxx@gmail">
             </div>
           </div><br>
           <div class="form-row justify-content-center" style="color: white;">
             
             <div class="form-group col-md-3">
               <label for="inputSenha">Senha</label>
-              <input type="text" class="form-control" id="Senha" placeholder="Senha">
+              <input type="text" class="form-control" id="senhaFunc" placeholder="Senha">
             </div>
             <div class="form-group col-md-3">
               <label for="inputConfirm">Confirmar senha</label>
-              <input type="text" class="form-control" id="Confirm" placeholder="Confirmar senha">
+              <input type="text" class="form-control" id="confirmFunc" placeholder="Confirmar senha">
             </div>
             <div class="form-group col-md-4">
               <label for="inputCod">Código de verificação</label>
-              <input type="text" class="form-control" id="Cod" placeholder="Código">
+              <input type="text" class="form-control" id="codFunc" placeholder="Código">
             </div>
           </div>
           <div class="form-group" style="color: white;">
@@ -177,7 +179,7 @@
               </label>
             </div>
           </div>
-          <button type="submit" class="btn btn-danger">Enviar</button>
+          <button type="submit" class="btn btn-danger" id="btcadastro">Enviar</button>
         </form><br><br>
       </div>
     </div>

@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $("#tabelaDoacoes").removeClass("invisible");
     
+    //listar as informações do doador
     $("#link_listar_infoDoador").click(function(){
         $.ajax({
             url: 'http://localhost:5000/listar_infoDoador',
@@ -153,6 +154,7 @@ $(document).ready(function () {
         }
     });
 
+    // listar as informações do funcionário
     $("#link_listar_infoFuncionario").click(function(){
         $.ajax({
             url: 'http://localhost:5000/listar_infoFuncionario',
@@ -302,44 +304,48 @@ $(document).ready(function () {
 
         }
     });
+    
+    // listar as informações do doador
+    $("#link_listar_infoDoador").click(function(){
+        $.ajax({
+            url: 'http://localhost:5000/listar_doacoes',
+            method: 'GET',
+            dataType: 'json', // os dados são recebidos no formato json
+            success: listar_doacoes, // chama a função listar_doacoes para processar o resultado
+            error: function () {
+                alert("erro ao ler dados, verifique o backend");
+            }
+        });
+    
+        function listar_doacoes(doac) {
+            // inicializar um acumulador
+            linhas = ""
+            // percorrer as plantas retornadas em json
+            for (var d in doac) {
 
-    $.ajax({
-        url: 'http://localhost:5000/listar_doacoes',
-        method: 'GET',
-        dataType: 'json', // os dados são recebidos no formato json
-        success: listar_doacoes, // chama a função listar_doacoes para processar o resultado
-        error: function () {
-            alert("erro ao ler dados, verifique o backend");
+                // montar uma linha da tabela de plantas
+                lin = "<tr>" +
+                    "<td>" + doac[d]["CPF do Doador"] + "</td>" +
+                    "<td>" + doac[d].Data + "</td>" +
+                    "<td>" + doac[d].Hora + "</td>" +
+                    "<td>" + doac[d]["Unidade Hemos"] + "</td>" +
+                    "</tr>";
+
+                // adicionar a linha da tabela em um acumulador
+                linhas = linhas + lin;
+            }
+            // colocar as linhas na tabela
+            $("#corpoTabelaDoacoes").html(linhas);
+
+            // esconder todos os elementos da tela
+            $("#tabelaDoacoes").addClass("invisible");
+
+            // exibir a tabela
+            $("#tabelaDoacoes").removeClass("invisible");
         }
     });
 
-    function listar_doacoes(doac) {
-        // inicializar um acumulador
-        linhas = ""
-        // percorrer as plantas retornadas em json
-        for (var d in doac) {
-
-            // montar uma linha da tabela de plantas
-            lin = "<tr>" +
-                "<td>" + doac[d]["CPF do Doador"] + "</td>" +
-                "<td>" + doac[d].Data + "</td>" +
-                "<td>" + doac[d].Hora + "</td>" +
-                "<td>" + doac[d]["Unidade Hemos"] + "</td>" +
-                "</tr>";
-
-            // adicionar a linha da tabela em um acumulador
-            linhas = linhas + lin;
-        }
-        // colocar as linhas na tabela
-        $("#corpoTabelaDoacoes").html(linhas);
-
-        // esconder todos os elementos da tela
-        $("#tabelaDoacoes").addClass("invisible");
-
-        // exibir a tabela
-        $("#tabelaDoacoes").removeClass("invisible");
-    }
-
+    // cadastrar as informações do doador
     $(document).on("click", "#btcadastrar", function () {
         // obter os dados da tela do formulário de cadastro de doador
         nome_doador = $("#nomeDoador").val();
@@ -398,7 +404,8 @@ $(document).ready(function () {
             alert("Deu ruim na chamada ao back-end");
         }
     });
-
+    
+    //cadastrar doações/agendamentos
     $(document).on("click", "#btcadastra", function () {
         // obter os dados da tela do formulário de cadastro de doador
         uni_hemos = $("#uniHemos").val();
@@ -432,6 +439,66 @@ $(document).ready(function () {
             }
         }
         function erroIncluirDoacao(resposta) {
+            alert("Deu ruim na chamada ao back-end");
+        }
+    });
+
+    //cadastrar funcionário
+    $(document).on("click", "#btcadastro", function () {
+        // obter os dados da tela do formulário de cadastro de funcionário
+        nome_func = $("#nomeFunc").val();
+        data_nasc_func = $("#dataNascFunc").val();
+        idade_func = $("#idadeFunc").val();
+        especialidade = $("#especialidade").val();
+        cpf_func = $("#cpfFunc").val();
+        sexo_func = $("#sexoFunc").val();
+        uni_hemo = $("#uniHemo").val();
+        cep_func = $("#cepFunc").val();
+        telefone_func = $("#telefoneFunc").val();
+        celular_func = $("#celFunc").val();
+        email_func = $("#emailFunc").val();
+        senha_func = $("#senhaFunC").val();
+        codigo = $("#codFunc").val();
+        confirm_senha_func = $("#confirmFunc").val();
+
+        // preparar os dados para envio (json)
+        dadosFunc = JSON.stringify({ nomeCompleto: nome_func, dtNascimento: data_nasc_func, idade: idade_func, cpf: cpf_func, genero: sexo_func, cep_func: cep, telefoneCelular: celular_func, telefoneResidencial: telefone_func, email: email_func, senha: senha_func, confirmarSenha: confirm_senha_func, unidade_hemocentro: uni_hemo, cod_verificacao: codigo, especialidade: especialidade });
+
+        // mandar para o back-end
+        $.ajax({
+            url: 'http://localhost:5000/incluir_funcionario',
+            type: 'POST',
+            contentType: 'application/json', // enviando dados em json
+            dataType: 'json',
+            data: dadosFunc,
+            success: incluirFuncionario,
+            error: erroIncluirFuncionario
+        });
+        function incluirFuncionario(resposta) {
+            if (resposta.resultado == "ok") {
+                // exibe mensagem de sucesso
+                alert('Doação incluída com sucesso');
+                // limpar valores dos campos do formulário
+                $("#nomeFunc").val();
+                $("#dataNascFunc").val();
+                $("#idadeFunc").val();
+                $("#especialidade").val();
+                $("#cpfFunc").val();
+                $("#sexoFunc").val();
+                $("#uniHemo").val();
+                $("#cepFunc").val();
+                $("#telefoneFunc").val();
+                $("#celFunc").val();
+                $("#emailFunc").val();
+                $("#senhaFunC").val();
+                $("#codFunc").val();
+                $("#confirmFunc").val();
+
+            } else {
+                alert('erro na comunicação');
+            }
+        }
+        function erroIncluirFuncionario(resposta) {
             alert("Deu ruim na chamada ao back-end");
         }
     });
