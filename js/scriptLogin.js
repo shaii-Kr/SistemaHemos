@@ -24,17 +24,20 @@ $(document).ready(function () {
                 // Alerta que teve sucesso
                 alert("Resultado: " + retorno.resultado + " Detalhes: " + retorno.detalhes);
                 // salva os dados em uma sessão
-                sessionStorage.nomeCompleto = retorno.usuario.nomeCompleto;
-                sessionStorage.dtNascimento = retorno.usuario.dtNascimento;
-                sessionStorage.genero = retorno.usuario.genero;
+                sessionStorage.nomeCompleto = retorno.usuario["Nome completo"];
+                sessionStorage.dtNascimento = retorno.usuario["Data de nascimento"];
+                sessionStorage.genero = retorno.usuario["Genero Biologico"];
                 sessionStorage.cpf = retorno.usuario.CPF; // ESTE FUNCIONA
-                sessionStorage.email = retorno.usuario.email;
-                sessionStorage.cep = retorno.usuario.cep;
-                sessionStorage.telefoneCelular = retorno.usuario.telefoneCelular ;
-                sessionStorage.telefoneResidencial = retorno.usuario.telefoneResidencial;
-                sessionStorage.type = retorno.usuario.type;
-                alert(retorno.usuario.CPF);
-                location.href = "PerfilUser.html"; // Recarrega a página
+                sessionStorage.email = retorno.usuario.Email;
+                sessionStorage.cep = retorno.usuario.CEP;
+                sessionStorage.telefoneCelular = retorno.usuario["Telefone celular"];
+                sessionStorage.telefoneResidencial = retorno.usuario["Telefone residencial"];
+                sessionStorage.idade = retorno.usuario.Idade;
+                sessionStorage.altura = retorno.usuario.Altura;
+                sessionStorage.peso = retorno.usuario.Peso;
+                sessionStorage.tipo_sanguineo = retorno.usuario["Tipo sanguineo"];
+                //alert(retorno.usuario.CPF);
+                location.href = "PerfilUser.html"; // Redireciona a página para o ferfil do doador
             } else {
                 // informar mensagem de erro
                 $("#loginIncorreto").removeClass("invisible");

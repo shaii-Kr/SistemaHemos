@@ -17,135 +17,96 @@ $(document).ready(function () {
     // lista os dados do doador retornado;
     function listar_infoDoador(resposta) {
 
+        //cria uma linha e uma coluna
         lin1 = '<div class="container">' +
             '<div class="row"><div class="col">' + resposta["Nome completo"]
         '</div></div>'
         '</div>';
-
         // adiciona a coluna e exibe na tabela
         $('#lin1').append(lin1);
 
-        // percorrer a lista de dados do doador retornado;
-        //for (var i in resposta) { //i vale a posição no vetor
+        //cria uma linha e uma coluna
         lin2 = '<div class="container">' +
             '<div class="row"><div class="col">' + resposta["Data de nascimento"]
         '</div></div>'
         '</div>';
-        //}
-
         // adiciona a coluna e exibe na tabela
         $('#lin2').append(lin2);
 
-
-        // percorrer a lista de dados do doador retornado;
-        for (var i in resposta) { //i vale a posição no vetor
-            lin3 = '<div class="container">' +
-                '<div class="row"><div class="col">' + resposta[i]["Tipo sanguineo"]
-            '</div></div>'
-            '</div>';
-        }
-
+        lin3 = '<div class="container">' +
+            '<div class="row"><div class="col">' + resposta["Tipo sanguineo"]
+        '</div></div>'
+        '</div>';
         // adiciona a coluna e exibe na tabela
         $('#lin3').append(lin3);
 
-        for (var i in resposta) { //i vale a posição no vetor
-            lin4 = '<div class="container">' +
-                '<div class="row"><div class="col">' + resposta[i].CPF
-            '</div></div>'
-            '</div>';
-        }
-
+        lin4 = '<div class="container">' +
+            '<div class="row"><div class="col">' + resposta.CPF
+        '</div></div>'
+        '</div>';
         // adiciona a coluna e exibe na tabela
         $('#lin4').append(lin4);
 
-        for (var i in resposta) { //i vale a posição no vetor
-            lin5 = '<div class="container">' +
-                '<div class="row"><div class="col">' + resposta[i]["Genero Biologico"]
-            '</div></div>'
-            '</div>';
-        }
-
+        lin5 = '<div class="container">' +
+            '<div class="row"><div class="col">' + resposta["Genero Biologico"]
+        '</div></div>'
+        '</div>';
         // adiciona a coluna e exibe na tabela
         $('#lin5').append(lin5);
 
-        for (var i in resposta) { //i vale a posição no vetor
-            lin6 = '<div class="container">' +
-                '<div class="row"><div class="col">' + resposta[i].Altura
-            '</div></div>'
-            '</div>';
-        }
-
+        lin6 = '<div class="container">' +
+            '<div class="row"><div class="col">' + resposta.Altura
+        '</div></div>'
+        '</div>';
         // adiciona a coluna e exibe na tabela
         $('#lin6').append(lin6);
 
-        for (var i in resposta) { //i vale a posição no vetor
-            lin7 = '<div class="container">' +
-                '<div class="row"><div class="col">' + resposta[i].Peso
-            '</div></div>'
-            '</div>';
-        }
-
+        lin7 = '<div class="container">' +
+            '<div class="row"><div class="col">' + resposta.Peso
+        '</div></div>'
+        '</div>';
         // adiciona a coluna e exibe na tabela
         $('#lin7').append(lin7);
 
-        for (var i in resposta) { //i vale a posição no vetor
-            lin8 = '<div class="container">' +
-                '<div class="row"><div class="col">' + resposta[i].Idade
-            '</div></div>'
-            '</div>';
-        }
-
+        lin8 = '<div class="container">' +
+            '<div class="row"><div class="col">' + resposta.Idade
+        '</div></div>'
+        '</div>';
         // adiciona a coluna e exibe na tabela
         $('#lin8').append(lin8);
 
-        for (var i in resposta) { //i vale a posição no vetor
-            lin9 = '<div class="container">' +
-                '<div class="row"><div class="col">' + resposta[i].CEP
-            '</div></div>'
-            '</div>';
-        }
-
+        lin9 = '<div class="container">' +
+            '<div class="row"><div class="col">' + resposta.CEP
+        '</div></div>'
+        '</div>';
         // adiciona a coluna e exibe na tabela
         $('#lin9').append(lin9);
 
-
-        for (var i in resposta) { //i vale a posição no vetor
-            lin10 = '<div class="container">' +
-                '<div class="row"><div class="col">' + resposta[i]["Telefone residencial"]
-            '</div></div>'
-            '</div>';
-        }
-
+        lin10 = '<div class="container">' +
+            '<div class="row"><div class="col">' + resposta["Telefone residencial"]
+        '</div></div>'
+        '</div>';
         // adiciona a coluna e exibe na tabela
         $('#lin10').append(lin10);
 
-        for (var i in resposta) { //i vale a posição no vetor
-            lin11 = '<div class="container">' +
-                '<div class="row"><div class="col">' + resposta[i]["Telefone celular"]
-            '</div></div>'
-            '</div>';
-        }
-
+        lin11 = '<div class="container">' +
+            '<div class="row"><div class="col">' + resposta["Telefone celular"]
+        '</div></div>'
+        '</div>';
         // adiciona a coluna e exibe na tabela
         $('#lin11').append(lin11);
 
-        for (var i in resposta) { //i vale a posição no vetor
-            lin12 = '<div class="container">' +
-                '<div class="row"><div class="col">' + resposta[i].Email
-            '</div></div>'
-            '</div>';
-        }
-
+        lin12 = '<div class="container">' +
+            '<div class="row"><div class="col">' + resposta.Email
+        '</div></div>'
+        '</div>';
         // adiciona a coluna e exibe na tabela
         $('#lin12').append(lin12);
 
-        for (var i in resposta) { //i vale a posição no vetor
-            lin13 = '<div class="container">' +
-                '<div class="row"><div class="col">' + resposta[i].Senha
-            '</div></div>'
-            '</div>';
-        }
-
+        lin13 = '<div class="container">' +
+            '<div class="row"><div class="col">' + resposta.Senha
+        '</div></div>'
+        '</div>';
         // adiciona a coluna e exibe na tabela
         $('#lin13').append(lin13);
 
