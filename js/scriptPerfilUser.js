@@ -5,7 +5,7 @@ $(document).ready(function () {
     //alert(cpf_logado);
     //listar as informações do doador
     $.ajax({
-        url: 'http://localhost:5000/listar_infoDoador/'+cpf_logado,
+        url: 'http://localhost:5000/listar_infoDoador/' + cpf_logado,
         method: 'GET',
         dataType: 'json', // os dados são recebidos no formato json
         success: listar_infoDoador, // chama a função listar_infoDoador para processar o resultado
@@ -17,23 +17,20 @@ $(document).ready(function () {
     // lista os dados do doador retornado;
     function listar_infoDoador(resposta) {
 
-        // percorrer a lista de dados do doador retornado;
-        //for (var i in resposta) { //i vale a posição no vetor
-            lin1 = '<div class="container">' +
-                '<div class="row"><div class="col">' + resposta["Nome completo"]
-            '</div></div>'
-            '</div>';
-        //}
+        lin1 = '<div class="container">' +
+            '<div class="row"><div class="col">' + resposta["Nome completo"]
+        '</div></div>'
+        '</div>';
 
         // adiciona a coluna e exibe na tabela
         $('#lin1').append(lin1);
 
         // percorrer a lista de dados do doador retornado;
         //for (var i in resposta) { //i vale a posição no vetor
-            lin2 = '<div class="container">' +
-                '<div class="row"><div class="col">' + resposta["Data de nascimento"]
-            '</div></div>'
-            '</div>';
+        lin2 = '<div class="container">' +
+            '<div class="row"><div class="col">' + resposta["Data de nascimento"]
+        '</div></div>'
+        '</div>';
         //}
 
         // adiciona a coluna e exibe na tabela
@@ -156,7 +153,7 @@ $(document).ready(function () {
 
     // listar as informações das doações
     $.ajax({
-        url: 'http://localhost:5000/listar_doacoes',
+        url: 'http://localhost:5000/listar_doacoes/' + cpf_logado,
         method: 'GET',
         dataType: 'json', // os dados são recebidos no formato json
         success: listar_doacoes, // chama a função listar_doacoes para processar o resultado

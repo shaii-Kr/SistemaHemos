@@ -31,9 +31,10 @@ def listar_infoFuncionario():
     return resposta2
 
 #listar informações das doações
-@app.route("/listar_doacoes")
-def listar_doacoes():
-    doac = db.session.query(Doacao).all()
+@app.route("/listar_doacoes/<string:cpf>")
+def listar_doacoes(cpf):
+    doac = db.session.query(Doacao).filter(Doacao.cpf_doador == cpf)
+    #    doac = db.session.query(Doacao).all()
     retorno3 = []
     for d in doac:
         retorno3.append(d.json())
@@ -55,9 +56,10 @@ def incluir_doador():
         todasPessoas = db.session.query(Pessoa).all()
         for i in todasPessoas:
             # Caso o CPF passado já exista no sistema, muda a variavel semErro para False
-            if i.cpf == dados['CPF']:
+            if i.cpf == dados['cpf']:
                 resposta = jsonify({"resultado": "CPF", "detalhes": "CPF duplicado"})
                 semErro = False
+                break
         # Caso a operação não tenha erros, faz o registro
         if semErro == True:
             novo_doador = Doador(**dados)
@@ -68,7 +70,7 @@ def incluir_doador():
         resposta = jsonify({"resultado": "erro", "detalhes": str(e)})
     # adicionar cabeçalho de liberação de origem
     resposta.headers.add("Access-Control-Allow-Origin", "*")
-    return {"resultado": 'ok'}
+    return resposta
 
 #cadastrar funcionário
 @app.route("/incluir_funcionario", methods=['post'])
@@ -130,4 +132,4 @@ def login():
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta
 
-app.run(debug=True)
+app.run()#debug=True)
