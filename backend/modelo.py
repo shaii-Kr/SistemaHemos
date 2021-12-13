@@ -27,7 +27,7 @@ class Pessoa(db.Model):
 class Funcionario(Pessoa):
     func_cpf = db.Column(db.String(20), db.ForeignKey(Pessoa.cpf), primary_key = True)
     funcionario = db.relationship("Funcionario")
-    cod_verificacao = db.Column(db.Integer) # código para realizar o cadastro do funcionário 
+    cod_verificacao = db.Column(db.String(9)) # código para realizar o cadastro do funcionário 
     unidade_hemocentro = db.Column(db.String(254))
     especialidade = db.Column(db.String(254))
     __mapper_args__ = { 

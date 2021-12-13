@@ -19,6 +19,13 @@ $(document).ready(function () {
         codigo = $("#codFunc").val();
         confirm_senha_func = $("#confirmFunc").val();
 
+        // Validação de código
+        if (codigo != ("12345678")) {
+            semErros = false
+            // Mostrando mensagem de aviso
+            $("#codigoErrado").removeClass("invisible");
+        }
+
         // Validação da Senha
         if (senha_func != $("#confirmFunc").val()) {
             semErros = false
@@ -60,10 +67,14 @@ $(document).ready(function () {
                     $("#senhaFunc").val("");
                     $("#codFunc").val("");
                     $("#confirmFunc").val("");
-
-                } else {
-                    alert('erro na comunicação');
+                    // Redireciona para outra página
+                    location.href = "LoginFunc.html";
+                } else if (resp.resultado == "CPF") {
+                    // informar mensagem de erro
+                    $("#cpfErrado").removeClass("invisible");
+                    alert("ERRO: " + resp.resultado + ": " + resp.detalhes);
                 }
+                
             }
             function erroIncluirFuncionario(resposta) {
                 alert("Deu ruim na chamada ao back-end");

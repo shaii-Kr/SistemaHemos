@@ -14,7 +14,7 @@
   <link rel="icon" href="../Imagens/icone.ico">
 
   <style>
-    #dadosDoador {
+    #infos {
       flex-direction: column;
       display: flex;
       position: relative;
@@ -30,22 +30,23 @@
       padding-top: 1%;
       padding-bottom: 1%;
     }
-    #dadosDoacoes {
-      flex-direction: column;
+
+    #tabela2 {
+      margin: 0 auto;
       display: flex;
-      position: relative;
+      position: center;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       border-radius: 5px;
       margin-top: 5%;
       margin-bottom: 5%;
-      justify-content: center;
-      height: 70%;
+      height: auto;
       width: 60%;
       padding-top: 1%;
       padding-bottom: 1%;
     }
+
     #botao {
       margin-top: 2%;
       margin-top: 2%;
@@ -57,13 +58,12 @@
 
 <body style="background-color: #f7f3e9">
   <!-- Cabeçalho -->
-
-  <header style="font-size: 20px;">
+  <header>
     <nav class="navbar navbar-expand-md navbar-light custom" style="background-color: #5eaaa8;">
       <a class="navbar-brand" href="index.html"><img src="../Imagens/HEMOS_logo_branca_transparente.png"
           width="160"></a>
 
-      <div class="dropdown" style="font-size: 15px;">
+      <div class="dropdown">
         <a class="dropbtn"><img src="../Imagens/Login_icon.png" width="40" height="40"
             style="margin-top: -10%; margin-bottom: -5%; margin-left: 60%;"></a>
         <div class="dropdown-content">
@@ -82,39 +82,42 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 3%;">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="index.html" style="color: white;"><b>Home</b><span
+            <a class="nav-link" href="index.html" style="color: white; font-size:20px;"><b>Home</b><span
                 class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item" style="margin-left: 20px;">
-            <a class="nav-link" href="Sobre.html" style="color: white;">Sobre</a>
+          <li class="nav-item">
+            <a class="nav-link" href="Sobre.html" style="color: white; font-size:20px;">Sobre</a>
           </li>
-          <li class="nav-item" style="margin-left: 20px;">
-            <a class="nav-link" href="Agendamento.html" style="color: white;">Agendamento</a>
+          <li class="nav-item">
+            <a class="nav-link" href="Agendamento.html" style="color: white; font-size:20px;">Agendamento</a>
           </li>
+
           <!-- Dropdown Cadastro-->
-          <li class="nav-item" style="margin-left: 20px;">
+          <li class="nav-item">
             <div class="dropdown">
-              <a class="nav-link" style="color: white;">Cadastre-se</a>
+              <a class="nav-link" style="color: white; font-size:20px;">Cadastre-se</a>
               <div class="dropdown-content">
-                <a href="CadastroDoador.html">Doador</a>
-                <a href="CadastroFunc.html">Funcionário</a>
+                <a href="CadastroDoador.html" style="font-size:20px;">Doador</a>
+                <a href="CadastroFunc.html" style="font-size:20px;">Funcionário</a>
               </div>
             </div>
           </li>
-          <li class="nav-item" style="margin-left: 20px;">
-            <a class="nav-link" href="Contatos.html" style="color: white;">Contatos</a>
+
+          <li class="nav-item">
+            <a class="nav-link" href="Contatos.html" style="color: white; font-size:20px;">Contatos</a>
           </li>
         </ul>
       </div>
     </nav>
   </header>
+
   <!-- Título Dados Pessoais do doador -->
   <h1 style="text-align: center; color: #ffffff; background-color: #a3d2ca;"><br>DADOS PESSOAIS<br><br></h1>
-  
+
   <!-- Lista as informações do doador-->
   <div id="tabela">
 
-    <div class="container" id="dadosDoador">
+    <div class="container" id="infos">
 
       <div class="row" style="text-align: center;">
         <div class="col"> Nome Completo: </div>
@@ -222,15 +225,15 @@
 
     </div>
   </div>
- 
+
   <!-- Título Dados das doações -->
   <h1 style="text-align: center; color: #ffffff; background-color: #a3d2ca;"><br>Suas Doações<br><br></h1>
-  
+
   <!-- Lista as informações das doações-->
   <div id="tabela2">
-   
+
     <table class="table" id="tabelaDoacoes" class="invisible">
-      <thead>
+      <thead style="text-align: center;">
         <tr>
           <th scope="col">CPF</th>
           <th scope="col">Data</th>
@@ -238,8 +241,8 @@
           <th scope="col">Unidade Hemocentro</th>
         </tr>
       </thead>
-      <tbody id="corpoTabelaDoacoes">
-          <!--
+      <tbody id="corpoTabelaDoacoes" style="text-align: center;">
+        <!--
         <tr>
           <th scope="row">1</th>
           <td>Mark</td>

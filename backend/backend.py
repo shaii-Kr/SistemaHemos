@@ -19,14 +19,14 @@ def listar_infoDoador(cpf):
     return resposta
 
 #listar informações do funcionário
-@app.route("/listar_infoFuncionario")
-def listar_infoFuncionario():
-    infoFunc = db.session.query(Funcionario).all()
-    retorno2 = []
-    for i in infoFunc:
-        retorno2.append(i.json())
+@app.route("/listar_infoFuncionario/<string:cpf>")
+def listar_infoFuncionario(cpf):
+    infoFunc = db.session.query(Funcionario).get(cpf)
+    #retorno2 = []
+    #for i in infoFunc:
+        #retorno2.append(i.json())
 
-    resposta2 = jsonify(retorno2)
+    resposta2 = jsonify(infoFunc.json())
     resposta2.headers.add("Access-Control-Allow-Origin", "*")
     return resposta2
 
@@ -85,9 +85,10 @@ def incluir_funcionario():
         todasPessoas = db.session.query(Pessoa).all()
         for i in todasPessoas:
             # Caso o CPF passado já exista no sistema, muda a variavel semErro para False
-            if i.cpf == dadosFunc['CPF']:
+            if i.cpf == dadosFunc['cpf']:
                 resposta = jsonify({"resultado": "CPF", "detalhes": "CPF duplicado"})
                 semErro = False
+                break
         # Caso a operação não tenha erros, faz o registro
         if semErro == True:
             novo_func = Funcionario(**dadosFunc)
@@ -99,7 +100,7 @@ def incluir_funcionario():
 
     # adicionar cabeçalho de liberação de origem
     resposta.headers.add("Access-Control-Allow-Origin", "*")
-    return {"resultado": 'ok'}
+    return resposta
 
 #cadastrar doação
 @app.route("/incluir_doacao", methods=['post'])
@@ -121,14 +122,25 @@ def incluir_doacao():
     return resposta
 
 #login
-@app.route("/login", methods=['post'])
-def login():
+@app.route("/loginUser", methods=['post'])
+def loginUser():
     dados = request.get_json() #(force=True) dispensa Content-Type na requisição
     todasPessoas = db.session.query(Pessoa).all()
-    resposta = jsonify({"resultado": "erro", "detalhes": "Usuário não encontrado"})
+    resposta = jsonify({"resultado": "erro", "detalhes": "Doador não encontrado"})
     for i in todasPessoas:
         if i.email == dados['Email'] and i.senha == dados['senha']:
-            resposta = jsonify({"resultado": "ok", "detalhes": "Usuário encontrado", "usuario": i.json()})
+            resposta = jsonify({"resultado": "ok", "detalhes": "Doador encontrado", "usuario": i.json()})
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return resposta
+
+@app.route("/loginFunc", methods=['post'])
+def loginFunc():
+    dados = request.get_json() #(force=True) dispensa Content-Type na requisição
+    todasPessoas = db.session.query(Pessoa).all()
+    resposta = jsonify({"resultado": "erro", "detalhes": "Funcionário não encontrado"})
+    for i in todasPessoas:
+        if i.email == dados['Email'] and i.senha == dados['senha']:
+            resposta = jsonify({"resultado": "ok", "detalhes": "Funcionário encontrado", "usuario": i.json()})
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta
 

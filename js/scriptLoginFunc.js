@@ -1,16 +1,18 @@
 $(document).ready(function () {
 
-    $(document).on("click", "#logarDoador", function() {
+    $(document).on("click", "#logarFunc", function () {
         // Pega os dados necessários
         email = $("#loginEmail").val();
         senha = $("#loginSenha").val();
+
         // Cria a variável que será mandada para o back-end no formato json
         var dados = JSON.stringify({
             Email: email, senha: senha
         });
+
         // Enviando os dados pelo método Ajax
         $.ajax({
-            url: 'http://localhost:5000/loginUser', // Endereço do banco de dados
+            url: 'http://localhost:5000/loginFunc', // Endereço do banco de dados
             type: 'POST', // O tipo POST é o de envio, enquanto GET é o de recuperação de dados
             dataType: 'json', // tipo de dados que será retornado
             contentType: 'application/json', // tipo dos dados enviados
@@ -33,11 +35,10 @@ $(document).ready(function () {
                 sessionStorage.telefoneCelular = retorno.usuario["Telefone celular"];
                 sessionStorage.telefoneResidencial = retorno.usuario["Telefone residencial"];
                 sessionStorage.idade = retorno.usuario.Idade;
-                sessionStorage.altura = retorno.usuario.Altura;
-                sessionStorage.peso = retorno.usuario.Peso;
-                sessionStorage.tipo_sanguineo = retorno.usuario["Tipo sanguineo"];
+                sessionStorage.unidade_hemocentro = retorno["Unidade Hemocentro"];
+                sessionStorage.especialidade = retorno.usuario.Especialidade;
                 //alert(retorno.usuario.CPF);
-                location.href = "PerfilUser.html"; // Redireciona a página para o ferfil do doador
+                location.href = "PerfilFunc.html"; // Redireciona a página para o ferfil do funcionário
             } else {
                 // informar mensagem de erro
                 alert("Erro: " + retorno.resultado + " Detalhes: " + retorno.detalhes);
@@ -47,9 +48,11 @@ $(document).ready(function () {
         function erroAoLogar(retorno) {
             // informar mensagem de erro
             alert("Erro: " + retorno.resultado + " Detalhes: " + retorno.detalhes);
+
         }
+
     });
-    
+
     $("#log_out").click(function () {
         // Fazendo com que as informações do individuo desapareça quando clicar em logout
         $(".profile_content").addClass("invisivel");
