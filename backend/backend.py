@@ -7,14 +7,14 @@ def padrao():
     return "backend operante"
 
 #listar informações do doador
-@app.route("/listar_infoDoador")
-def listar_infoDoador():
-    infoDoador = db.session.query(Doador).all()
-    retorno = []
-    for i in infoDoador:
-        retorno.append(i.json())
+@app.route("/listar_infoDoador/<string:cpf>")
+def listar_infoDoador(cpf):
+    infoDoador = db.session.query(Doador).get(cpf)
+    #retorno = []
+    #for i in infoDoador:
+    #  retorno.append(i.json())
 
-    resposta = jsonify(retorno)
+    resposta = jsonify(infoDoador.json())
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta
 
@@ -116,7 +116,7 @@ def incluir_doacao():
 
     # adicionar cabeçalho de liberação de origem
     resposta.headers.add("Access-Control-Allow-Origin", "*")
-    return {"resultado": 'ok'}
+    return resposta
 
 #login
 @app.route("/login", methods=['post'])

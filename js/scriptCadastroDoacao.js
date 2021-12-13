@@ -5,6 +5,7 @@ $(document).ready(function () {
         uni_hemos = $("#uniHemos").val();
         data = $("#data").val();
         hora = $("#hora").val();
+        cpf_logado = sessionStorage.cpf;
 
         let checkbox = document.getElementById('check');
 
@@ -12,7 +13,7 @@ $(document).ready(function () {
             document.getElementById("check").checked = true;
             console.log("O cliente marcou o checkbox");
            // preparar os dados para envio (json)
-            var dadosDoacao = JSON.stringify({ unidade_hemocentro: uni_hemos, data: data, hora: hora });
+            var dadosDoacao = JSON.stringify({ unidade_hemocentro: uni_hemos, data: data, hora: hora, cpf_doador:cpf_logado });
             // mandar para o back-end
             $.ajax({
                 url: 'http://localhost:5000/incluir_doacao',

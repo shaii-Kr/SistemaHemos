@@ -1,9 +1,11 @@
 $(document).ready(function () {
     $("#tabelaDoacoes").removeClass("invisible");
 
+    cpf_logado = sessionStorage.cpf;
+    //alert(cpf_logado);
     //listar as informações do doador
     $.ajax({
-        url: 'http://localhost:5000/listar_infoDoador',
+        url: 'http://localhost:5000/listar_infoDoador/'+cpf_logado,
         method: 'GET',
         dataType: 'json', // os dados são recebidos no formato json
         success: listar_infoDoador, // chama a função listar_infoDoador para processar o resultado
@@ -16,23 +18,23 @@ $(document).ready(function () {
     function listar_infoDoador(resposta) {
 
         // percorrer a lista de dados do doador retornado;
-        for (var i in resposta) { //i vale a posição no vetor
+        //for (var i in resposta) { //i vale a posição no vetor
             lin1 = '<div class="container">' +
-                '<div class="row"><div class="col">' + resposta[i]["Nome completo"]
+                '<div class="row"><div class="col">' + resposta["Nome completo"]
             '</div></div>'
             '</div>';
-        }
+        //}
 
         // adiciona a coluna e exibe na tabela
         $('#lin1').append(lin1);
 
         // percorrer a lista de dados do doador retornado;
-        for (var i in resposta) { //i vale a posição no vetor
+        //for (var i in resposta) { //i vale a posição no vetor
             lin2 = '<div class="container">' +
-                '<div class="row"><div class="col">' + resposta[i]["Data de nascimento"]
+                '<div class="row"><div class="col">' + resposta["Data de nascimento"]
             '</div></div>'
             '</div>';
-        }
+        //}
 
         // adiciona a coluna e exibe na tabela
         $('#lin2').append(lin2);

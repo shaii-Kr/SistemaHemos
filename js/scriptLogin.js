@@ -1,18 +1,18 @@
 $(document).ready(function () {
 
-    $("#logarDoador").submit(function (e) {
+    $(document).on("click", "#logarDoador", function() {
         // Pega os dados necessários
         email = $("#loginEmail").val();
         senha = $("#loginSenha").val();
         // Cria a variável que será mandada para o back-end no formato json
         var dados = JSON.stringify({
-            email: email, senha: senha
+            Email: email, senha: senha
         });
         // Enviando os dados pelo método Ajax
         $.ajax({
             url: 'http://localhost:5000/login', // Endereço do banco de dados
             type: 'POST', // O tipo POST é o de envio, enquanto GET é o de recuperação de dados
-            dataType: 'json', // Tipo de arquivo que será enviado
+            dataType: 'json', // tipo de dados que será retornado
             contentType: 'application/json', // tipo dos dados enviados
             data: dados, // estes são os dados enviados
             success: executarLogin, // Mostra uma mensagem indicando o sucesso na operação e adiciona os dados do usuário na sessionStorage
@@ -27,12 +27,13 @@ $(document).ready(function () {
                 sessionStorage.nomeCompleto = retorno.usuario.nomeCompleto;
                 sessionStorage.dtNascimento = retorno.usuario.dtNascimento;
                 sessionStorage.genero = retorno.usuario.genero;
-                sessionStorage.cpf = retorno.usuario.cpf;
+                sessionStorage.cpf = retorno.usuario.CPF; // ESTE FUNCIONA
                 sessionStorage.email = retorno.usuario.email;
                 sessionStorage.cep = retorno.usuario.cep;
                 sessionStorage.telefoneCelular = retorno.usuario.telefoneCelular ;
                 sessionStorage.telefoneResidencial = retorno.usuario.telefoneResidencial;
                 sessionStorage.type = retorno.usuario.type;
+                alert(retorno.usuario.CPF);
                 location.href = "PerfilUser.html"; // Recarrega a página
             } else {
                 // informar mensagem de erro
