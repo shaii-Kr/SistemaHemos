@@ -5,7 +5,7 @@ class Pessoa(db.Model):
     nomeCompleto = db.Column(db.String(200))
     dtNascimento = db.Column(db.String(100))
     genero = db.Column(db.String(100))
-    cpf = db.Column(db.Integer, primary_key=True)
+    cpf = db.Column(db.String(20), primary_key=True)
     idade = db.Column(db.Integer)
     cep = db.Column(db.Integer)
     telefoneCelular = db.Column(db.Integer)
@@ -25,7 +25,7 @@ class Pessoa(db.Model):
 
 # Classe filha que representa um funcionário do hemos
 class Funcionario(Pessoa):
-    func_cpf = db.Column(db.Integer, db.ForeignKey(Pessoa.cpf), primary_key = True)
+    func_cpf = db.Column(db.String(20), db.ForeignKey(Pessoa.cpf), primary_key = True)
     funcionario = db.relationship("Funcionario")
     cod_verificacao = db.Column(db.Integer) # código para realizar o cadastro do funcionário 
     unidade_hemocentro = db.Column(db.String(254))
@@ -59,9 +59,8 @@ class Funcionario(Pessoa):
 
 # Classe filha que representa um doador do Hemos       
 class Doador(Pessoa):
-    doad_cpf = db.Column(db.Integer, db.ForeignKey(Pessoa.cpf), primary_key = True)
+    doad_cpf = db.Column(db.String(20), db.ForeignKey(Pessoa.cpf), primary_key = True)
     tipo_sanguineo = db.Column(db.String(1))
-    fator_rh = db.Column(db.String(1))
     altura = db.Column(db.Float)
     peso = db.Column(db.Float)
     __mapper_args__ = { 
@@ -70,7 +69,7 @@ class Doador(Pessoa):
     
     # Método que retorna as informaçaões da classe Doador em uma string
     def __str__(self):
-        return f'{super().__str__()}, {self.tipo_sanguineo}, {self.fator_rh}, {self.altura}, {self.peso}, {self.doad_cpf}, {self.type}'
+        return f'{super().__str__()}, {self.tipo_sanguineo}, {self.altura}, {self.peso}, {self.doad_cpf}, {self.type}'
     
     # Método que lista os dados no formato json
     def json(self): 
@@ -87,7 +86,6 @@ class Doador(Pessoa):
             "Confirmar Senha": self.confirmarSenha,
             "Senha": self.senha, 
             "Tipo sanguineo": self.tipo_sanguineo,
-            "Fator RH": self.fator_rh,
             "Altura": self.altura,
             "Peso": self.peso
             }
@@ -123,16 +121,13 @@ if __name__ == "__main__":
     db.create_all() # Cria as tabelas do banco de dados
 
     # Inputs de teste
-    funcionario1 = Funcionario(nomeCompleto = "Shaiane Kraus", dtNascimento = "03/11/2003", genero = "F", cpf = 11134508900, email = "shaiane103@gmail.com", \
-    unidade_hemocentro = "Blumenau", idade = 17, cep = 8002254, telefoneCelular = 991285489, telefoneResidencial = 33302305, especialidade = "Enfermeira", senha = "shai1234", cod_verificacao = 123456, confirmarSenha = "shai1234")
   
-    doador1 = Doador(nomeCompleto = "Ana Carolina", dtNascimento = "13/10/2003", genero = "F", cpf = 11034508902, email = "ana.c.santos@gmail.com",senha = "aninha1234", altura = 1.65, peso = 50, idade = 17, cep = 8002258, telefoneCelular = 991285589, telefoneResidencial = 33333333, tipo_sanguineo = "O+", fator_rh = "-", confirmarSenha = "aninha1234")
+    doador1 = Doador(nomeCompleto = "Ana Carolina", dtNascimento = "13/10/2003", genero = "F", cpf = "11034508902", email = "ana.c.santos@gmail.com", senha = "aninha1234", altura = 1.65, peso = 50, idade = 17, cep = 8002258, telefoneCelular = 991285589, telefoneResidencial = 33333333, tipo_sanguineo = "O+", confirmarSenha = "aninha1234")
 
     doacao = Doacao(data = "18/08/2012", hora = "09h15", unidade_hemocentro = "Blumenau", doador = doador1)
     
 
     # Adiciona na lista de commit
-    db.session.add(funcionario1)
     db.session.add(doador1)
     db.session.add(doacao)
     db.session.commit() # Grava os dados no banco de dados

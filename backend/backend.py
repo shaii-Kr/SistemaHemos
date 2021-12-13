@@ -1,6 +1,6 @@
 from werkzeug.wrappers import response
 from config import *
-from modelo import Doacao, Doador, Funcionario
+from modelo import Doacao, Doador, Funcionario, Pessoa
 
 @app.route("/")
 def padrao():
@@ -49,14 +49,23 @@ def incluir_doador():
     resposta = jsonify({"resultado": "ok", "detalhes": "ok"})
     # receber as informações do novo doador
     dados = request.get_json()
+    semErro = True
     try:
-        novo_doador = Doador(**dados)
-        db.session.add(novo_doador)
-        db.session.commit()
+        # Recuperando dados do banco para fazer validação do CPF
+        todasPessoas = db.session.query(Pessoa).all()
+        for i in todasPessoas:
+            # Caso o CPF passado já exista no sistema, muda a variavel semErro para False
+            if i.cpf == dados['CPF']:
+                resposta = jsonify({"resultado": "CPF", "detalhes": "CPF duplicado"})
+                semErro = False
+        # Caso a operação não tenha erros, faz o registro
+        if semErro == True:
+            novo_doador = Doador(**dados)
+            db.session.add(novo_doador)
+            db.session.commit()
     # informar mensagem de erro
     except Exception as e:
         resposta = jsonify({"resultado": "erro", "detalhes": str(e)})
-
     # adicionar cabeçalho de liberação de origem
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return {"resultado": 'ok'}
@@ -68,10 +77,20 @@ def incluir_funcionario():
     resposta = jsonify({"resultado": "ok", "detalhes": "ok"})
     # receber as informações do novo doador
     dadosFunc = request.get_json()
+    semErro = True
     try:
-        novo_func = Funcionario(**dadosFunc)
-        db.session.add(novo_func)
-        db.session.commit()
+        # Recuperando dados do banco para fazer validação do CPF
+        todasPessoas = db.session.query(Pessoa).all()
+        for i in todasPessoas:
+            # Caso o CPF passado já exista no sistema, muda a variavel semErro para False
+            if i.cpf == dadosFunc['CPF']:
+                resposta = jsonify({"resultado": "CPF", "detalhes": "CPF duplicado"})
+                semErro = False
+        # Caso a operação não tenha erros, faz o registro
+        if semErro == True:
+            novo_func = Funcionario(**dadosFunc)
+            db.session.add(novo_func)
+            db.session.commit()
     # informar mensagem de erro
     except Exception as e:
         resposta = jsonify({"resultado": "erro", "detalhes": str(e)})
@@ -98,5 +117,17 @@ def incluir_doacao():
     # adicionar cabeçalho de liberação de origem
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return {"resultado": 'ok'}
+
+#login
+@app.route("/login", methods=['post'])
+def login():
+    dados = request.get_json() #(force=True) dispensa Content-Type na requisição
+    todasPessoas = db.session.query(Pessoa).all()
+    resposta = jsonify({"resultado": "erro", "detalhes": "Usuário não encontrado"})
+    for i in todasPessoas:
+        if i.email == dados['Email'] and i.senha == dados['senha']:
+            resposta = jsonify({"resultado": "ok", "detalhes": "Usuário encontrado", "usuario": i.json()})
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return resposta
 
 app.run(debug=True)

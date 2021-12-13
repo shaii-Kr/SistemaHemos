@@ -100,7 +100,7 @@
         <br><br>
         <h2 class="card-title text-center" style="color: white;">DADOS PESSOAIS</h2> <br><br>
         <!-- Inicio -->
-        <form onsubmit="return false;">
+        <form onsubmit="return false;" autocomplete="off">
           <div class="row justify-content-center" style="color: white;">
             <div class="form-group col-md-3 ">
               <label for="inputNome">Nome Completo</label>
@@ -122,11 +122,20 @@
           <div class="row justify-content-center" style="color: white;">
             <div class="form-group col-md-3">
               <label for="inputCPF">CPF</label>
-              <input type="text" class="form-control" id="cpfFunc" placeholder="CPF">
+              <input type="text" name="cpf" aria-label="cpf" class="form-control" placeholder="CPF"
+              id="cpf" minlength="14" maxlength="14" required>
+              <span class="red invisible" id="cpfErrado">CPF já está em uso</span>
             </div>
-            <div class="form-group col-md-3 ">
-              <label for="inputUniHemo">Unidade Hemocentro</label>
-              <input type="text" class="form-control" placeholder="Hemocentro" id="uniHemo">
+            <div class="form-group col-md-3">
+              <label for="inputLocal">Selecione o Hemocentro</label>
+              <select class="form-control" id="uniHemo">
+                <option>Blumenau</option>
+                <option>Joaçaba</option>
+                <option>Chapecó</option>
+                <option>Joinville</option>
+                <option>Criciúma</option>
+                <option>Lages</option>
+              </select>
             </div>
             <div class="form-group col-md-2">
               <label for="inputSexo">Sexo</label>
@@ -138,7 +147,8 @@
             </div>
             <div class="form-group col-md-2">
               <label for="inputCEP">CEP</label>
-              <input type="text" class="form-control" id="cepFunc" placeholder="CEP">
+              <input type="text" class="form-control" id="cep" placeholder="CEP" minlength="9"
+								maxlength="9" required>
             </div>
           </div><br>
           <div class="form-row  justify-content-center" style="color: white;">
@@ -165,18 +175,11 @@
             <div class="form-group col-md-3">
               <label for="inputConfirm">Confirmar senha</label>
               <input type="text" class="form-control" id="confirmFunc" placeholder="Confirmar senha">
+              <span class="red invisible" id="senhaErrada">As senhas não batem!</span>
             </div>
             <div class="form-group col-md-4">
               <label for="inputCod">Código de verificação</label>
               <input type="text" class="form-control" id="codFunc" placeholder="Código">
-            </div>
-          </div>
-          <div class="form-group" style="color: white;">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
-              <label class="form-check-label" for="gridCheck">
-                Concordo com todos os termos
-              </label>
             </div>
           </div>
           <button type="submit" class="btn btn-danger" id="btcadastro">Enviar</button>
@@ -185,9 +188,6 @@
     </div>
   </div>
   <br><br><br>
-
-
-
 
   <section>
     <!-- Footer -->
@@ -205,6 +205,8 @@
     integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>
   <script src="../js/meuscript.js"></script> 
+  <script src="../js/scriptCadastroFunc.js"></script>
+
 </body>
 
 </html>
